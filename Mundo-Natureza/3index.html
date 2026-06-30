@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preservação da Natureza</title>
+    <link rel="stylesheet" href="3style.css">
+</head>
+<body>
+
+    <header class="banner">
+
+        <div class="logo">EcologicalNature</div>
+
+        <nav class="navegacao">
+
+            <a href="#home">Home</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#contato">Contato</a>
+       
+        </nav>
+   
+    </header>
+
+    <div class="layout-wrapper">
+
+        <main>
+
+            <h2>Explorando Biomas</h2>
+
+            <section class="grid-container">
+
+                <article class="card">
+
+                    <h3>Amazônia</h3>
+                    <p>A maior floresta tropical do mundo, abrigando imensa biodiversidade.</p>
+                
+                </article>
+                <article class="card">
+
+                    <h3>Cerrado</h3>
+                    <p>Conhecido como o berço das águas, rico em fauna e flora adaptadas.</p>
+                
+                </article>
+                <article class="card">
+
+                    <h3>Mata Atlântica</h3>
+
+                    <p>Um dos biomas mais ricos e ameaçados do planeta.</p>
+
+                </article>
+
+                <article class="card">
+
+                    <h3>Pantanal</h3>
+                    <p>A maior planície alagável contínua do mundo.</p>
+
+                </article>
+
+            </section>
+
+            <section id="contato" class="form-section">
+               
+                <h2>Entre em Contato</h2>
+                
+                <form action="#" method="POST" id="contato-form">
+
+                    <div class="form-group">
+
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                    
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: 000.000.000-00" required maxlength="14">
+                   
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="nascimento">Data de nascimento:</label>
+                        <input type="date" id="nascimento" name="nascimento" required>
+                    
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                    
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" pattern="\(\d{2}\)\s\d{4,5}-\d{4}" title="Formato: (00) 00000-0000" required maxlength="15">
+                    
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="assunto">Assunto:</label>
+
+                        <select id="assunto" name="assunto" required>
+
+                            <option value="">Selecione uma opção...</option>
+                            <option value="duvida">Dúvida</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="parceria">Parceria</option>
+                       
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                    
+                    </div>
+
+                    <div class="form-group-checkbox">
+
+                        <input type="checkbox" id="termos" name="termos" required>
+                        <label for="termos">Aceito os termos e condições de uso.</label>
+                    
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar</button>
+
+                </form>
+
+            </section>
+
+        </main>
+
+        <aside class="sidebar">
+
+            <h3>Curiosidades</h3>
+
+            <div class="dica-box">
+
+                <h4>Você sabia?</h4>
+                <p>Uma única árvore pode absorver até 22kg de CO2 por ano.</p>
+            
+            </div>
+
+            <div class="dica-box">
+
+                <h4>Dica Sustentável</h4>
+                <p>Reduza o uso de plásticos descartáveis no seu dia a dia.</p>
+            
+            </div>
+
+            <div class="dica-box">
+
+                <h4>Notícia</h4>
+                <p>Novas áreas de proteção ambiental foram criadas no Brasil este mês.</p>
+           
+            </div>
+
+        </aside>
+
+    </div>
+
+    <footer class="rodape">
+
+        <div class="footer-col">
+            <h4>Sobre Nós</h4>
+            <p>Somos dedicados a compartilhar conhecimento sobre a biodiversidade e incentivar a preservação da natureza.</p>
+        
+        </div>
+
+        <div class="footer-col">
+
+            <h4>Contato</h4>
+            <p>Email: ola@ecologicalnature.com</p>
+            <p>Telefone: (11) 99999-9999</p>
+
+        </div>
+
+        <div class="footer-col">
+
+            <h4>Redes Sociais</h4>
+
+            <div class="social-links">
+
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+           
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script>
+
+        const inputCpf = document.getElementById('cpf');
+        inputCpf.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 11) value = value.slice(0, 11);
+            value = value.replace(/(\d{3})(\d)/, "$1.$2");
+            value = value.replace(/(\d{3})(\d)/, "$1.$2");
+            value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            e.target.value = value;
+        });
+
+        const inputTel = document.getElementById('telefone');
+        inputTel.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 11) value = value.slice(0, 11);
+            value = value.replace(/^(\d{2})(\d)/g, "($1) $2");
+            value = value.replace(/(\d)(\d{4})$/, "$1-$2");
+            e.target.value = value;
+        });
+    </script>
+
+</body>
+</html>
